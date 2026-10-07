@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Smart Agriculture Monitoring and Crop Yield Prediction System</title>
+  <meta name="description" content="AI-Powered Smart Agriculture Monitoring and Crop Yield Prediction System: 3D Explainer Video, IoT Hardware Simulation & Real-Time Analytics Dashboard.">
+  <link rel="stylesheet" href="./src/styles.css">
+  <!-- Vendored Standalone Three.js -->
+  <script src="./public/libs/three.min.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="project-badge">
+        <span class="pulse-dot"></span>
+        <span>MCA / Engineering Capstone Project</span>
+      </div>
+      <h1 class="app-title">AI-Powered Smart Agriculture Monitoring and Crop Yield Prediction System</h1>
+      <p class="app-subtitle">
+        IoT Sensors • ESP32 • RS485 Bus • Wi-Fi Telemetry • Intelligent Analysis • Crop Yield Prediction • Automated Closed-Loop Irrigation
+      </p>
+    </header>
+
+    <!-- Main Player Stage -->
+    <main>
+      <div id="player-card" class="player-card">
+        <div class="player-stage-container">
+          <canvas id="presentation-canvas" width="1280" height="720"></canvas>
+          
+          <!-- Big Play Prompt (Initial Overlay) -->
+          <div id="stage-prompt" class="stage-overlay-prompt">
+            <div class="big-play-btn">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="prompt-text">Click to Start 3D Explainer & Audio Narration</div>
+          </div>
+        </div>
+
+        <!-- Player Controls Bar -->
+        <div class="player-controls">
+          <!-- Timeline Scrubber -->
+          <div id="timeline-wrapper" class="timeline-wrapper" title="Seek timeline">
+            <div id="timeline-progress" class="timeline-progress">
+              <div class="timeline-thumb"></div>
+            </div>
+            <div class="timeline-scenes-ticks">
+              <div class="timeline-tick" style="left: 10%;"></div>
+              <div class="timeline-tick" style="left: 20%;"></div>
+              <div class="timeline-tick" style="left: 30%;"></div>
+              <div class="timeline-tick" style="left: 40%;"></div>
+              <div class="timeline-tick" style="left: 50%;"></div>
+              <div class="timeline-tick" style="left: 60%;"></div>
+              <div class="timeline-tick" style="left: 70%;"></div>
+              <div class="timeline-tick" style="left: 80%;"></div>
+              <div class="timeline-tick" style="left: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- Controls Row -->
+          <div class="controls-row">
+            <div class="controls-left">
+              <button id="btn-play-pause" class="ctrl-btn active-primary" title="Play / Pause (Space)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span>PLAY</span>
+              </button>
+
+              <button id="btn-restart" class="ctrl-btn" title="Restart from 00:00">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                  <path d="M3 3v5h5"/>
+                </svg>
+                <span>RESTART</span>
+              </button>
+
+              <div class="time-display">
+                <span id="time-current" class="time-current">00:00</span>
+                <span> / </span>
+                <span id="time-total">02:00</span>
+              </div>
+            </div>
+
+            <div class="controls-right">
+              <div class="volume-group" title="Volume">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+                <input id="volume-slider" class="volume-slider" type="range" min="0" max="1" step="0.05" value="1.0">
+              </div>
+
+              <button id="btn-fullscreen" class="ctrl-btn" title="Fullscreen">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+                <span>FULLSCREEN</span>
+              </button>
+
+              <button id="btn-export" class="ctrl-btn btn-export" title="Export Standalone MP4 Video">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>EXPORT FINAL VIDEO</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scene Chapters Navigator (10 Exact Scenes) -->
+    <section>
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span>Master Timeline Chapters (10 Synchronized Scenes • 120 Seconds)</span>
+      </h2>
+
+      <div class="scenes-grid">
+        <div class="scene-card active" data-start="0.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 01</span>
+            <span class="scene-time">00:00 - 00:12</span>
+          </div>
+          <div class="scene-title">Smart Farm Introduction</div>
+        </div>
+
+        <div class="scene-card" data-start="12.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 02</span>
+            <span class="scene-time">00:12 - 00:24</span>
+          </div>
+          <div class="scene-title">Hardware Architecture</div>
+        </div>
+
+        <div class="scene-card" data-start="24.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 03</span>
+            <span class="scene-time">00:24 - 00:36</span>
+          </div>
+          <div class="scene-title">Sensor Monitoring</div>
+        </div>
+
+        <div class="scene-card" data-start="36.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 04</span>
+            <span class="scene-time">00:36 - 00:48</span>
+          </div>
+          <div class="scene-title">NPK + MAX485 Interface</div>
+        </div>
+
+        <div class="scene-card" data-start="48.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 05</span>
+            <span class="scene-time">00:48 - 01:00</span>
+          </div>
+          <div class="scene-title">ESP32 Data Processing</div>
+        </div>
+
+        <div class="scene-card" data-start="60.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 06</span>
+            <span class="scene-time">01:00 - 01:12</span>
+          </div>
+          <div class="scene-title">Wi-Fi Communication</div>
+        </div>
+
+        <div class="scene-card" data-start="72.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 07</span>
+            <span class="scene-time">01:12 - 01:24</span>
+          </div>
+          <div class="scene-title">Software Dashboard</div>
+        </div>
+
+        <div class="scene-card" data-start="84.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 08</span>
+            <span class="scene-time">01:24 - 01:36</span>
+          </div>
+          <div class="scene-title">Intelligent AI Analysis</div>
+        </div>
+
+        <div class="scene-card" data-start="96.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 09</span>
+            <span class="scene-time">01:36 - 01:48</span>
+          </div>
+          <div class="scene-title">Automatic Irrigation Trigger</div>
+        </div>
+
+        <div class="scene-card" data-start="108.0">
+          <div class="scene-meta">
+            <span class="scene-num">Scene 10</span>
+            <span class="scene-time">01:48 - 02:00</span>
+          </div>
+          <div class="scene-title">Pump & Complete System</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Architecture & Specifications Section -->
+    <section class="arch-section">
+      <div class="tech-card">
+        <h2 class="section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          <span>End-to-End System Pipeline</span>
+        </h2>
+        <div class="flow-chart-container">
+          <div class="flow-row">
+            <span class="flow-node green">IoT Sensors</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node cyan">MAX485 / RS485</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node cyan">ESP32 Controller</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node blue">2.4 GHz Wi-Fi</span>
+          </div>
+          <div class="flow-row">
+            <span class="flow-arrow">↓</span>
+          </div>
+          <div class="flow-row">
+            <span class="flow-node blue">Software Dashboard</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node purple">Intelligent AI Analysis</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node purple">Crop Yield Prediction</span>
+          </div>
+          <div class="flow-row">
+            <span class="flow-arrow">↓</span>
+          </div>
+          <div class="flow-row">
+            <span class="flow-node amber">Irrigation Decision (&lt;30%)</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node green">5V Relay Module</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node green">DC Water Pump</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-node green">Hydrated Crops</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <h2 class="section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <span>Hardware & Model Specifications</span>
+        </h2>
+        <table class="spec-table">
+          <tbody>
+            <tr>
+              <td>Microcontroller</td>
+              <td>ESP32 Dual-Core Xtensa @ 240MHz</td>
+            </tr>
+            <tr>
+              <td>Soil Moisture Probe</td>
+              <td>Capacitive v1.2 Corrosion-Resistant (Analog)</td>
+            </tr>
+            <tr>
+              <td>Microclimate Sensor</td>
+              <td>DHT22 Temperature & Humidity (Digital Single-Bus)</td>
+            </tr>
+            <tr>
+              <td>Acidity Sensor</td>
+              <td>Soil pH Sensor & Glass Electrode (High-Z Signal)</td>
+            </tr>
+            <tr>
+              <td>NPK Soil Nutrient Sensor</td>
+              <td>3-Probe Industrial RS485 (Modbus RTU)</td>
+            </tr>
+            <tr>
+              <td>Bus Transceiver</td>
+              <td>MAX485 Half-Duplex Differential Module</td>
+            </tr>
+            <tr>
+              <td>Actuator Switching</td>
+              <td>5V Optocoupler-Isolated Relay Module</td>
+            </tr>
+            <tr>
+              <td>Irrigation Pump</td>
+              <td>3-6V Mini DC Submersible Pump (120 L/h)</td>
+            </tr>
+            <tr>
+              <td>AI Prediction Engine</td>
+              <td>Crop Health (88/100) & Yield Delta (+11.2%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Export Standalone Video Modal -->
+    <div id="modal-backdrop" class="modal-backdrop">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3 class="modal-title">Export Final Explainer Video</h3>
+          <button id="modal-close" class="modal-close" title="Close">&times;</button>
+        </div>
+
+        <div class="export-details-list">
+          <div class="export-row">
+            <span class="label">Filename:</span>
+            <span class="val">Smart_Agriculture_AI_Explainer_2min.mp4</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Format:</span>
+            <span class="val">MP4 (MPEG-4 Part 14)</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Video Codec:</span>
+            <span class="val">H.264 / AVC (yuv420p)</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Audio Codec:</span>
+            <span class="val">AAC-LC 48 kHz Stereo</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Resolution:</span>
+            <span class="val">1280 × 720 (16:9 HD)</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Frame Rate:</span>
+            <span class="val">30 FPS (Constant Frame Rate)</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Duration:</span>
+            <span class="val">02:00 (Exactly 120 Seconds)</span>
+          </div>
+          <div class="export-row">
+            <span class="label">Compatibility:</span>
+            <span class="val">VLC, WhatsApp, PowerPoint, QuickTime, Windows</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a id="btn-modal-download" class="btn-action-primary" href="./public/video/Smart_Agriculture_AI_Explainer_2min.mp4" download="Smart_Agriculture_AI_Explainer_2min.mp4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>DOWNLOAD STANDALONE MP4 (120s)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
